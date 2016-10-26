@@ -28,7 +28,7 @@ public class Offer implements Serializable {
     private Person person;
 
     @ManyToOne
-    private Listing for;
+    private Listing listing;
 
     public Long getId() {
         return id;
@@ -64,17 +64,17 @@ public class Offer implements Serializable {
         this.person = person;
     }
 
-    public Listing getFor() {
-        return for;
+    public Listing getListing() {
+        return listing;
     }
 
-    public Offer for(Listing listing) {
-        this.for = listing;
+    public Offer listing(Listing listing) {
+        this.listing = listing;
         return this;
     }
 
-    public void setFor(Listing listing) {
-        this.for = listing;
+    public void setListing(Listing listing) {
+        this.listing = listing;
     }
 
     @Override

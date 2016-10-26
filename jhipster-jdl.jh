@@ -33,7 +33,7 @@ relationship OneToOne {
 }
 
 relationship OneToMany {
-	Listing{offers} to Offer{for},
+	Listing{offers} to Offer{listing},
 	Person{owns} to Listing,
     Person{offers} to Offer
 }

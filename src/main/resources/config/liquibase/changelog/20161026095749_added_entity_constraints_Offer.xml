@@ -14,9 +14,9 @@
                                  referencedColumnNames="id"
                                  referencedTableName="person"/>
 
-        <addForeignKeyConstraint baseColumnNames="for_id"
+        <addForeignKeyConstraint baseColumnNames="listing_id"
                                  baseTableName="offer"
-                                 constraintName="fk_offer_for_id"
+                                 constraintName="fk_offer_listing_id"
                                  referencedColumnNames="id"
                                  referencedTableName="listing"/>
 

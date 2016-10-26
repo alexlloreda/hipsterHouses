@@ -52,7 +52,7 @@ public class Listing implements Serializable {
     @JoinColumn(unique = true)
     private Property property;
 
-    @OneToMany(mappedBy = "for")
+    @OneToMany(mappedBy = "listing")
     @JsonIgnore
     private Set<Offer> offers = new HashSet<>();
 
@@ -195,13 +195,13 @@ public class Listing implements Serializable {
 
     public Listing addOffers(Offer offer) {
         offers.add(offer);
-        offer.setFor(this);
+        offer.setListing(this);
         return this;
     }
 
     public Listing removeOffers(Offer offer) {
         offers.remove(offer);
-        offer.setFor(null);
+        offer.setListing(null);
         return this;
     }
 
