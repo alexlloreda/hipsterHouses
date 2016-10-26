@@ -1,0 +1,59 @@
+
+<div>
+    <h2><span>Listing</span> {{vm.listing.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Minimum Price</span></dt>
+        <dd>
+            <span>{{vm.listing.minimumPrice}}</span>
+        </dd>
+        <dt><span>Built Area</span></dt>
+        <dd>
+            <span>{{vm.listing.builtArea}}</span>
+        </dd>
+        <dt><span>Total Area</span></dt>
+        <dd>
+            <span>{{vm.listing.totalArea}}</span>
+        </dd>
+        <dt><span>Rooms</span></dt>
+        <dd>
+            <span>{{vm.listing.rooms}}</span>
+        </dd>
+        <dt><span>Bathrooms</span></dt>
+        <dd>
+            <span>{{vm.listing.bathrooms}}</span>
+        </dd>
+        <dt><span>Indoor Car Parks</span></dt>
+        <dd>
+            <span>{{vm.listing.indoorCarParks}}</span>
+        </dd>
+        <dt><span>Outdoor Car Parks</span></dt>
+        <dd>
+            <span>{{vm.listing.outdoorCarParks}}</span>
+        </dd>
+        <dt><span>Sell Price</span></dt>
+        <dd>
+            <span>{{vm.listing.sellPrice}}</span>
+        </dd>
+        <dt><span>Property</span></dt>
+        <dd>
+            <a ui-sref="propertymySuffix-detail({id:vm.listing.property.id})">{{vm.listing.property.id}}</a>
+        </dd>
+        <dt><span>Person</span></dt>
+        <dd>
+            <a ui-sref="personmySuffix-detail({id:vm.listing.person.id})">{{vm.listing.person.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="listingmySuffix-detail.edit({id:vm.listing.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>

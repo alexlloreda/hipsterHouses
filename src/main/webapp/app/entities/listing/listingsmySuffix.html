@@ -1,0 +1,95 @@
+<div>
+    <h2>Listings</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="listingmySuffix.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs" >
+                        Create new Listing
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="Query">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Minimum Price</span></th>
+                    <th><span>Built Area</span></th>
+                    <th><span>Total Area</span></th>
+                    <th><span>Rooms</span></th>
+                    <th><span>Bathrooms</span></th>
+                    <th><span>Indoor Car Parks</span></th>
+                    <th><span>Outdoor Car Parks</span></th>
+                    <th><span>Sell Price</span></th>
+                    <th><span>Property</span></th>
+                    <th><span>Person</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="listing in vm.listings track by listing.id">
+                    <td><a ui-sref="listingmySuffix-detail({id:listing.id})">{{listing.id}}</a></td>
+                    <td>{{listing.minimumPrice}}</td>
+                    <td>{{listing.builtArea}}</td>
+                    <td>{{listing.totalArea}}</td>
+                    <td>{{listing.rooms}}</td>
+                    <td>{{listing.bathrooms}}</td>
+                    <td>{{listing.indoorCarParks}}</td>
+                    <td>{{listing.outdoorCarParks}}</td>
+                    <td>{{listing.sellPrice}}</td>
+                    <td>
+                        <a ui-sref="propertymySuffix-detail({id:listing.property.id})">{{listing.property.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="personmySuffix-detail({id:listing.person.id})">{{listing.person.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="listingmySuffix-detail({id:listing.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="listingmySuffix.edit({id:listing.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="listingmySuffix.delete({id:listing.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

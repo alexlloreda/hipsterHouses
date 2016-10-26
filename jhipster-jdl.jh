@@ -1,0 +1,44 @@
+
+entity Listing {
+    minimumPrice BigDecimal
+    builtArea BigDecimal
+    totalArea BigDecimal
+    rooms Integer
+    bathrooms Integer
+    indoorCarParks Integer
+    outdoorCarParks Integer
+    sellPrice BigDecimal
+}
+
+entity Property {
+	streetAddress String
+	postalCode String
+	city String
+	stateProvince String
+}
+
+entity Person {
+	firstName String
+	lastName String
+	email String
+	phoneNumber String
+}
+
+entity Offer {
+	amount BigDecimal
+}
+
+relationship OneToOne {
+	Listing{property} to Property
+}
+
+relationship OneToMany {
+	Listing{offers} to Offer{for},
+	Person{owns} to Listing,
+    Person{offers} to Offer
+}
+
+// Set service options to all
+service all with serviceImpl
+// Set an angular suffix
+angularSuffix * with mySuffix

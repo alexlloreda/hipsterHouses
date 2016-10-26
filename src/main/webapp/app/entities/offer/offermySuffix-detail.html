@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span>Offer</span> {{vm.offer.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Amount</span></dt>
+        <dd>
+            <span>{{vm.offer.amount}}</span>
+        </dd>
+        <dt><span>Person</span></dt>
+        <dd>
+            <a ui-sref="personmySuffix-detail({id:vm.offer.person.id})">{{vm.offer.person.id}}</a>
+        </dd>
+        <dt><span>For</span></dt>
+        <dd>
+            <a ui-sref="listingmySuffix-detail({id:vm.offer.for.id})">{{vm.offer.for.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="offermySuffix-detail.edit({id:vm.offer.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm"> Edit</span>
+    </button>
+</div>
